@@ -1,7 +1,7 @@
 package switcher
 
 import (
-	"hypr-dock/pkg/ini"
+	"hypr-appdock/pkg/ini"
 	"log"
 
 	"github.com/hashicorp/go-hclog"
@@ -42,3 +42,4 @@ func LoadConfig(path string) Config {
 
 	return conf
 }
+

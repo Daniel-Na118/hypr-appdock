@@ -1,5 +1,5 @@
 ## Open Window Indicators  
-#### Place indicator images in `~/.config/hypr-dock/themes/[theme_name]/point`.  
+#### Place indicator images in `~/.config/hypr-appdock/themes/[theme_name]/point`.  
 **Default set:** `0.svg` `1.svg` `2.svg` `3.svg`  
 
 ![Preview](https://github.com/user-attachments/assets/9f9cb607-c0c7-48ef-9379-266f2b253246)  

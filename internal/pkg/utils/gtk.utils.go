@@ -186,3 +186,4 @@ func SetAutoHover(v *gtk.Widget, context *gtk.StyleContext) {
 		}
 	})
 }
+

@@ -2,7 +2,7 @@ package detectzone
 
 import (
 	"fmt"
-	"hypr-dock/internal/settings"
+	"hypr-appdock/internal/settings"
 
 	"github.com/dlasky/gotk3-layershell/layershell"
 	"github.com/gotk3/gotk3/gdk"
@@ -88,3 +88,4 @@ func selectEdges(window *gtk.Window, settings *settings.Settings) {
 		layershell.SetMargin(window, layershell.LAYER_SHELL_EDGE_BOTTOM, 0)
 	}
 }
+

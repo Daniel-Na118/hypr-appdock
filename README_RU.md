@@ -1,25 +1,25 @@
-# hypr-dock
-### Интерактивная док-панель для Hyprland
+# hypr-appdock
+### ?н?е?ак?ивна? док-панел? дл? Hyprland
 
 <img width="1360" height="768" alt="250725_16h02m52s_screenshot" src="https://github.com/user-attachments/assets/041d2cf6-13ba-4c89-a960-1903073ff2d4" />
 <img width="1360" height="768" alt="250725_16h03m09s_screenshot" src="https://github.com/user-attachments/assets/0c1ad8ca-37c1-4fd6-a48d-46f74c2d2609" />
 
-[![YouTube](https://img.shields.io/badge/YouTube-Видео-FF0000?logo=youtube)](https://youtu.be/HHUZWHfNAl0?si=ZrRv2ggnPBEBS5oY)
-[![AUR](https://img.shields.io/badge/AUR-Package-1793D1?logo=arch-linux)](https://aur.archlinux.org/packages/hypr-dock)
+[![YouTube](https://img.shields.io/badge/YouTube-?идео-FF0000?logo=youtube)](https://youtu.be/HHUZWHfNAl0?si=ZrRv2ggnPBEBS5oY)
+[![AUR](https://img.shields.io/badge/AUR-Package-1793D1?logo=arch-linux)](https://aur.archlinux.org/packages/hypr-appdock)
 
-## Установка
+## У??ановка
 
-### Зависимости
+### ?ави?имо??и
 
 - `go` (make)
 - `gtk3`
 - `gtk-layer-shell`
 
-### Установка
-! Первая сборка может занимать крайне много времени из за привязки gtk3 !
+### У??ановка
+! ?е?ва? ?бо?ка може? занима?? к?айне много в?емени из за п?ив?зки gtk3 !
 ```bash
-git clone https://github.com/lotos-linux/hypr-dock.git
-cd hypr-dock
+git clone https://github.com/lotos-linux/hypr-appdock.git
+cd hypr-appdock
 make get
 make build
 make install
@@ -30,18 +30,18 @@ make install
 make uninstall
 ```
 
-### Локальный запуск (dev mode)
+### ?окал?н?й зап??к (dev mode)
 ```bash
 make exec
 ```
 
-## Запуск
+## ?ап??к
 
-### Параметры запуска:
+### ?а?аме??? зап??ка:
 
 ```text
   -config string
-    	config file (default "~/.config/hypr-dock")
+    	config file (default "~/.config/hypr-appdock")
   -dev
     	enable developer mode
   -log-level string
@@ -49,33 +49,33 @@ make exec
   -theme string
     	theme dir
 ```
-#### Все параметры являются необязательными.
+#### ??е па?аме??? ?вл????? необ?за?ел?н?ми.
 
-Конфигурация и темы по умолчания ставяться в `/etc/hypr-dock`
-При первом запуске копируются в `~/.config/hypr-dock`
-### Добавьте запуск в `hyprland.conf`:
+?он?иг??а?и? и ?ем? по ?мол?ани? ??ав????? в `/etc/hypr-appdock`
+??и пе?вом зап??ке копи?????? в `~/.config/hypr-appdock`
+### ?обав??е зап??к в `hyprland.conf`:
 
 ```text
-exec-once = hypr-dock
-bind = Super, D, exec, hypr-dock
+exec-once = hypr-appdock
+bind = Super, D, exec, hypr-appdock
 ```
 
-### И настройте блюр если он вам нужен
+### ? на???ой?е бл?? е?ли он вам н?жен
 ```text
-layerrule = blur true,match:namespace hypr-dock
-layerrule = ignore_alpha 0,match:namespace hypr-dock
+layerrule = blur true,match:namespace hypr-appdock
+layerrule = ignore_alpha 0,match:namespace hypr-appdock
 layerrule = blur true,match:namespace dock-popup
 layerrule = ignore_alpha 0,match:namespace dock-popup
 ```
 
-#### Док поддерживает только один запущенный экземпляр, так что повторный запуск закроет предыдующий.
+#### ?ок подде?живае? ?ол?ко один зап??енн?й ?кземпл??, ?ак ??о пов?о?н?й зап??к зак?ое? п?ед?д???ий.
 
-## Настройка
+## ?а???ойка
 
-#### !Важно! 
-Если у вас уже стоял `hypr-dock` или вы обновляетесь то прошу обратить внимание что начиная с версии 1.2.0 теперь используется `ini` подобный фомат конфигурации. И если у вас в пользовательской папке остались старые конфиги обязательно удалите их или переместите. Затем просто адаптируйте ваши настройки под новый формат
+#### !?ажно! 
+??ли ? ва? ?же ??о?л `hypr-appdock` или в? обновл?е?е?? ?о п?о?? об?а?и?? внимание ??о на?ина? ? ве??ии 1.2.0 ?епе?? и?пол?з?е??? `ini` подобн?й ?ома? кон?иг??а?ии. ? е?ли ? ва? в пол?зова?ел??кой папке о??али?? ??а??е кон?иги об?за?ел?но ?дали?е и? или пе?еме??и?е. ?а?ем п?о??о адап?и??й?е ва?и на???ойки под нов?й ?о?ма?
 
-### В `hypr-dock.conf` доступны такие параметры
+### ? `hypr-appdock.conf` до???пн? ?акие па?аме???
 
 ```ini
 [General]
@@ -118,12 +118,12 @@ Mode = none
 # !WARNING! 
 # BY SETTING "Mode" TO "live" OR "static", YOU AGREE TO THE CAPTURE 
 # OF WINDOW CONTENTS.
-# THE "HYPR-DOCK" PROGRAM DOES NOT COLLECT, STORE, OR TRANSMIT ANY DATA.
+# THE "hypr-appdock" PROGRAM DOES NOT COLLECT, STORE, OR TRANSMIT ANY DATA.
 # WINDOW CAPTURE OCCURS ONLY FOR THE DURATION OF THE THUMBNAIL DISPLAY!
 #   
-# Source code: https://github.com/lotos-linux/hypr-dock
+# Source code: https://github.com/lotos-linux/hypr-appdock
 
-# Live preview fps (0 - ∞) (default 30)
+# Live preview fps (0 - ?? (default 30)
 FPS = 30
 
 # Live preview bufferSize (1 - 20) (default 5)
@@ -134,32 +134,32 @@ ShowDelay = 500  # (default 500)
 HideDelay = 350  # (default 350)
 MoveDelay = 100  # (default 100)
 ```
-#### Если параметр не указан значение будет выставлено по умолчанию
+#### ??ли па?аме?? не ?казан зна?ение б?де? в???авлено по ?мол?ани?
 
-## Разберем неочевидные параметры
+## ?азбе?ем нео?евидн?е па?аме???
 
 ### SmartView
-Что то на подобии автоскрытия, если `true` то док находиться под всеми окнами, но если увести курсор мыши к краю экрана - док поднимается над ними
+Ч?о ?о на подобии ав?о?к???и?, е?ли `true` ?о док на?оди???? под в?еми окнами, но е?ли ?ве??и к???о? м??и к к?а? ?к?ана - док поднимае??? над ними
 
 ### Exclusive
-Активирует особое поведение слоя при котором тайлинговые окна не перекрывают док
+?к?иви??е? о?обое поведение ?ло? п?и ко?о?ом ?айлингов?е окна не пе?ек??ва?? док
 
 ### SystemGapUsed
-- При `SystemGapUsed = true` док будет задавать для себя отступ от края экрана беря значение из конфигурации `hyprland`, а конкретно значения `general:gaps_out`, при этом док динамически будет подхватывать изменение конфигурации `hyprland`
-- При `SystemGapUsed = false` отступ от края экрана будет задаваться параметром `Margin`
+- ??и `SystemGapUsed = true` док б?де? задава?? дл? ?еб? о????п о? к?а? ?к?ана бе?? зна?ение из кон?иг??а?ии `hyprland`, а конк?е?но зна?ени? `general:gaps_out`, п?и ??ом док динами?е?ки б?де? под?ва??ва?? изменение кон?иг??а?ии `hyprland`
+- ??и `SystemGapUsed = false` о????п о? к?а? ?к?ана б?де? задава???? па?аме??ом `Margin`
 
 ### General.preview
-- `ShowDelay`, `HideDelay`, `MoveDelay` - задержки действий попапа превью в милисекундах
-- `FPS`, `BufferSize` - используются только при `Mode = live`
+- `ShowDelay`, `HideDelay`, `MoveDelay` - заде?жки дей??вий попапа п?ев?? в мили?ек?нда?
+- `FPS`, `BufferSize` - и?пол?з????? ?ол?ко п?и `Mode = live`
 
 
-#### Настройки внешнего вида превью происходит через файлы темы
+#### ?а???ойки вне?него вида п?ев?? п?ои??оди? ?е?ез ?айл? ?ем?
 
 
 
-### Заклепленные приложения храняться в файле `~/.local/share/hypr-dock/pinned`
-Для закрепления откройте контестное меню приложения в доке и нажмине `pin`/`unpin`
-#### Например
+### ?аклепленн?е п?иложени? ??ан????? в ?айле `~/.local/share/hypr-appdock/pinned`
+?л? зак?еплени? о?к?ой?е кон?е??ное мен? п?иложени? в доке и нажмине `pin`/`unpin`
+#### ?ап?име?
 ```text
 firefox
 code-oss
@@ -171,18 +171,18 @@ sublime_text
 qt6ct
 one.ablaze.floorp
 ```
-Вы можете менять его в ручную. Но зачем? ¯\_(ツ)_/¯
+?? може?е мен??? его в ???н??. ?о за?ем? ¯\_(??_/¯
 
-## Темы
+## Тем?
 
-#### Темы находяться в папке `~/.config/hypr-dock/themes/`
+#### Тем? на?од????? в папке `~/.config/hypr-appdock/themes/`
 
-### Тема состоит из
+### Тема ?о??ои? из
 - `theme.conf`
 - `style.css`
-- Папка с `svg` файлами для индикации количества запущенных приложения (смотрите [themes_RU.md](https://github.com/lotos-linux/hypr-dock/blob/main/docs/customize/themes_RU.md))
+- ?апка ? `svg` ?айлами дл? индика?ии коли?е??ва зап??енн?? п?иложени? (?мо??и?е [themes_RU.md](https://github.com/lotos-linux/hypr-appdock/blob/main/docs/customize/themes_RU.md))
 
-### Конфиг темы
+### ?он?иг ?ем?
 ```ini
 [Theme]
 # Distance between elements (px) (default 9)
@@ -199,4 +199,4 @@ BorderRadius = 0
 # Popup padding (px) (default 10)
 Padding = 10
 ```
-#### Файл `style.css` крутите как хотите. Позже сделаю подробную документацию по стилизации
+#### Файл `style.css` к???и?е как ?о?и?е. ?озже ?дела? под?обн?? док?мен?а?и? по ??илиза?ии

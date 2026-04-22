@@ -11,9 +11,9 @@ import (
 	"github.com/gotk3/gotk3/gtk"
 	"github.com/hashicorp/go-hclog"
 
-	"hypr-dock/internal/hysc"
-	"hypr-dock/internal/pkg/utils"
-	"hypr-dock/pkg/ipc"
+	"hypr-appdock/internal/hysc"
+	"hypr-appdock/internal/pkg/utils"
+	"hypr-appdock/pkg/ipc"
 )
 
 // findIconPath searches for an icon file in common directories
@@ -306,3 +306,4 @@ func ToContainer(w *gtk.Widget) *gtk.Container {
 	}
 	return nil
 }
+

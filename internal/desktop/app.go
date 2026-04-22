@@ -2,7 +2,7 @@ package desktop
 
 import (
 	"fmt"
-	"hypr-dock/pkg/ini"
+	"hypr-appdock/pkg/ini"
 	"strings"
 
 	"github.com/pkg/errors"
@@ -197,3 +197,4 @@ func (a *Action) GetName(lang ...string) string {
 	}
 	return GetLocalizedValue(a.name, lang[0])
 }
+

@@ -9,20 +9,20 @@ import (
 	"github.com/allan-simon/go-singleinstance"
 	"github.com/gotk3/gotk3/gtk"
 
-	"hypr-dock/internal/app"
-	"hypr-dock/internal/hypr/hyprEvents"
-	"hypr-dock/internal/layering"
-	"hypr-dock/internal/pkg/flags"
-	"hypr-dock/internal/pkg/signals"
-	"hypr-dock/internal/pkg/utils"
-	"hypr-dock/internal/settings"
-	"hypr-dock/internal/state"
+	"hypr-appdock/internal/app"
+	"hypr-appdock/internal/hypr/hyprEvents"
+	"hypr-appdock/internal/layering"
+	"hypr-appdock/internal/pkg/flags"
+	"hypr-appdock/internal/pkg/signals"
+	"hypr-appdock/internal/pkg/utils"
+	"hypr-appdock/internal/settings"
+	"hypr-appdock/internal/state"
 )
 
 func main() {
 	signals.Handler()
 
-	lockFilePath := fmt.Sprintf("%s/hypr-dock-%s.lock", utils.TempDir(), os.Getenv("USER"))
+	lockFilePath := fmt.Sprintf("%s/hypr-appdock-%s.lock", utils.TempDir(), os.Getenv("USER"))
 	lockFile, err := singleinstance.CreateLockFile(lockFilePath)
 	if err != nil {
 		file, err := utils.LoadTextFile(lockFilePath)
@@ -57,7 +57,7 @@ func main() {
 	}
 	appState.SetWindow(window)
 
-	window.SetTitle("hypr-dock")
+	window.SetTitle("hypr-appdock")
 
 	layerctl := layering.NewInit(window, settings)
 	appState.SetLayerctl(layerctl)
@@ -79,3 +79,4 @@ func main() {
 	// end
 	gtk.Main()
 }
+

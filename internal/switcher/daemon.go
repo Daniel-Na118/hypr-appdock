@@ -14,7 +14,7 @@ import (
 // setupSingleton checks if another instance is running and sends signal to it
 // Returns true if this should be the daemon, false if signal was sent to existing daemon
 func setupSingleton() bool {
-	lockFile := "/tmp/hypr-dock-switcher.lock"
+	lockFile := "/tmp/hypr-appdock-switcher.lock"
 
 	// Check if lock file exists
 	if data, err := os.ReadFile(lockFile); err == nil {
@@ -161,3 +161,4 @@ func (s *Switcher) checkModifiers() bool {
 func (s *Switcher) startPolling() {
 	glib.TimeoutAdd(50, s.checkModifiers)
 }
+

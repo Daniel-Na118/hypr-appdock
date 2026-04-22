@@ -1,9 +1,9 @@
 package layering
 
 import (
-	detectzone "hypr-dock/internal/detectZone"
-	"hypr-dock/internal/pkg/timer"
-	"hypr-dock/internal/settings"
+	detectzone "hypr-appdock/internal/detectZone"
+	"hypr-appdock/internal/pkg/timer"
+	"hypr-appdock/internal/settings"
 
 	"github.com/dlasky/gotk3-layershell/layershell"
 	"github.com/gotk3/gotk3/gdk"
@@ -47,7 +47,7 @@ func New(window *gtk.Window, settings *settings.Settings) *Control {
 
 func (c *Control) Init() {
 	layershell.InitForWindow(c.window)
-	layershell.SetNamespace(c.window, "hypr-dock")
+	layershell.SetNamespace(c.window, "hypr-appdock")
 
 	c.SetPosition()
 	c.SetLayer()
@@ -185,3 +185,4 @@ func is_e3e4(e *gdk.Event) bool {
 	ec := gdk.EventCrossingNewFromEvent(e)
 	return ec.Detail() == 3 || ec.Detail() == 4
 }
+

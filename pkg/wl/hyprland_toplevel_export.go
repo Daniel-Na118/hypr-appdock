@@ -501,3 +501,4 @@ func (i *HyprlandToplevelExportFrameV1) Dispatch(opcode uint32, fd int, data []b
 		i.bufferDoneHandler(e)
 	}
 }
+

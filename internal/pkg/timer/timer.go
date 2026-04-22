@@ -10,8 +10,8 @@ type Timer struct {
 	active    bool
 	startTime time.Time
 	mu        sync.Mutex
-	handler   func()        // текущий handler (только для активного таймера)
-	duration  time.Duration // текущая длительность (только для активного таймера)
+	handler   func()        // ?ек??ий handler (?ол?ко дл? ак?ивного ?айме?а)
+	duration  time.Duration // ?ек??а? дли?ел?но??? (?ол?ко дл? ак?ивного ?айме?а)
 }
 
 func New() *Timer {
@@ -22,7 +22,7 @@ func (t *Timer) Run(ms int, handler func()) {
 	t.mu.Lock()
 	defer t.mu.Unlock()
 
-	t.stopUnsafe() // останавливаем предыдущий таймер, если был
+	t.stopUnsafe() // о??анавливаем п?ед?д??ий ?айме?, е?ли б?л
 
 	t.active = true
 	t.startTime = time.Now()
@@ -53,7 +53,7 @@ func (t *Timer) stopUnsafe() {
 
 	t.timer.Stop()
 	t.active = false
-	// Очищаем временные данные
+	// ??и?аем в?еменн?е данн?е
 	t.handler = nil
 	t.duration = 0
 }
@@ -100,9 +100,10 @@ func (t *Timer) triggerUnsafe() {
 	t.timer.Stop()
 	t.active = false
 	handler := t.handler
-	// Очищаем временные данные перед вызовом handler
+	// ??и?аем в?еменн?е данн?е пе?ед в?зовом handler
 	t.handler = nil
 	t.duration = 0
 
 	handler()
 }
+

@@ -76,3 +76,4 @@ func getGravity(pos string) (gdk.Gravity, gdk.Gravity) {
 
 	return first, second
 }
+

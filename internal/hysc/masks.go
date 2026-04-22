@@ -47,3 +47,4 @@ func radiusmask(pixel Cord, center Cord, R float64) float64 {
 	t := (distance - (R - 1.0)) / 2.0
 	return 1.0 - t*t
 }
+

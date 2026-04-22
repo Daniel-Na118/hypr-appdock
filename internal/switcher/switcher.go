@@ -8,8 +8,8 @@ import (
 	"github.com/gotk3/gotk3/gdk"
 	"github.com/gotk3/gotk3/gtk"
 
-	"hypr-dock/pkg/ipc"
-	"hypr-dock/pkg/wl"
+	"hypr-appdock/pkg/ipc"
+	"hypr-appdock/pkg/wl"
 
 	"github.com/hashicorp/go-hclog"
 )
@@ -85,7 +85,7 @@ func Run(confPath string) {
 	if !setupSingleton() {
 		return
 	}
-	defer os.Remove("/tmp/hypr-dock-switcher.lock")
+	defer os.Remove("/tmp/hypr-appdock-switcher.lock")
 	logTiming("Singleton lock acquired")
 
 	// Setup signal handling for cycling
@@ -146,3 +146,4 @@ func Run(confPath string) {
 	logTiming("Entering GTK main loop")
 	gtk.Main()
 }
+

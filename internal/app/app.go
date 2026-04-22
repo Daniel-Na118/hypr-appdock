@@ -7,12 +7,12 @@ import (
 
 	"github.com/gotk3/gotk3/gtk"
 
-	"hypr-dock/internal/btnctl"
-	"hypr-dock/internal/hypr/hyprOpt"
-	"hypr-dock/internal/item"
-	"hypr-dock/internal/pkg/utils"
-	"hypr-dock/internal/state"
-	"hypr-dock/pkg/ipc"
+	"hypr-appdock/internal/btnctl"
+	"hypr-appdock/internal/hypr/hyprOpt"
+	"hypr-appdock/internal/item"
+	"hypr-appdock/internal/pkg/utils"
+	"hypr-appdock/internal/state"
+	"hypr-appdock/pkg/ipc"
 )
 
 func BuildApp(appState *state.State) *gtk.Box {
@@ -183,3 +183,4 @@ func setMargin(app *gtk.Box, position string, margin ...int) {
 		}
 	}
 }
+

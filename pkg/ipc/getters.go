@@ -56,3 +56,4 @@ func GetOption(option string, v interface{}) error {
 	}
 	return nil
 }
+

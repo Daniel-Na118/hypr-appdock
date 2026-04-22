@@ -2,11 +2,11 @@ package pvwidget
 
 import (
 	"fmt"
-	"hypr-dock/internal/hysc"
-	"hypr-dock/internal/item"
-	"hypr-dock/internal/pkg/utils"
-	"hypr-dock/internal/settings"
-	"hypr-dock/pkg/ipc"
+	"hypr-appdock/internal/hysc"
+	"hypr-appdock/internal/item"
+	"hypr-appdock/internal/pkg/utils"
+	"hypr-appdock/internal/settings"
+	"hypr-appdock/pkg/ipc"
 
 	"sync"
 
@@ -251,3 +251,4 @@ func (w *Widget) OnEmpty(handler func()) {
 func (w *Widget) GetClass() string {
 	return w.item.ClassName
 }
+

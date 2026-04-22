@@ -2,7 +2,7 @@ package hysc
 
 import (
 	"fmt"
-	"hypr-dock/pkg/wl"
+	"hypr-appdock/pkg/wl"
 	"log"
 
 	"github.com/gotk3/gotk3/gdk"
@@ -489,3 +489,4 @@ func (s *Stream) scale(pixbuf *gdk.Pixbuf) (*gdk.Pixbuf, error) {
 	// no scaling
 	return pixbuf, nil
 }
+

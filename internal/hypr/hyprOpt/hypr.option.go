@@ -3,7 +3,7 @@ package hyprOpt
 import (
 	"errors"
 	"fmt"
-	"hypr-dock/pkg/ipc"
+	"hypr-appdock/pkg/ipc"
 	"math"
 	"strconv"
 	"strings"
@@ -72,3 +72,4 @@ func GapChangeEvent(handler func(gap []int)) {
 		}
 	}, true)
 }
+

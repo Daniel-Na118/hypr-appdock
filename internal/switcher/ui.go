@@ -7,7 +7,7 @@ import (
 	"github.com/gotk3/gotk3/gdk"
 	"github.com/gotk3/gotk3/gtk"
 
-	"hypr-dock/internal/pkg/utils"
+	"hypr-appdock/internal/pkg/utils"
 )
 
 // initWindow creates and configures the main window
@@ -33,7 +33,7 @@ func (s *Switcher) initWindow() error {
 // setupLayerShell configures the layer shell for the window
 func (s *Switcher) setupLayerShell() {
 	layershell.InitForWindow(s.window)
-	layershell.SetNamespace(s.window, "hypr-dock-switcher")
+	layershell.SetNamespace(s.window, "hypr-appdock-switcher")
 	layershell.SetLayer(s.window, layershell.LAYER_SHELL_LAYER_OVERLAY)
 	layershell.SetKeyboardMode(s.window, layershell.LAYER_SHELL_KEYBOARD_MODE_EXCLUSIVE)
 	layershell.SetExclusiveZone(s.window, -1)
@@ -132,3 +132,4 @@ func (s *Switcher) createMainLayout() {
 	s.box.SetMarginEnd(50)
 	scroll.Add(s.box)
 }
+

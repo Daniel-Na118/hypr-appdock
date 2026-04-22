@@ -16,7 +16,7 @@ func Get() Flags {
 	flag.CommandLine = flag.NewFlagSet(os.Args[0], flag.ExitOnError)
 
 	dev := flag.Bool("dev", false, "enable developer mode")
-	config := flag.String("config", "~/.config/hypr-dock", "config file")
+	config := flag.String("config", "~/.config/hypr-appdock", "config file")
 	theme := flag.String("theme", "", "theme dir")
 	logLevel := flag.String("log-level", "info", "log level")
 	flag.Parse()
@@ -28,3 +28,4 @@ func Get() Flags {
 		LogLevel: *logLevel,
 	}
 }
+

@@ -66,3 +66,4 @@ type Client struct {
 	FocusHistoryID   int           `json:"focusHistoryID"`
 	InhibitingIdle   bool          `json:"inhibitingIdle"`
 }
+

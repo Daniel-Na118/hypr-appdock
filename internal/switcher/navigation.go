@@ -3,7 +3,7 @@ package switcher
 import (
 	"fmt"
 
-	"hypr-dock/pkg/ipc"
+	"hypr-appdock/pkg/ipc"
 )
 
 // cycle moves selection by direction (1 for forward, -1 for backward)
@@ -139,3 +139,4 @@ func (s *Switcher) confirm() {
 		s.window.Hide()
 	}
 }
+

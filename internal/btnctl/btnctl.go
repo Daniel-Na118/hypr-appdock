@@ -1,11 +1,11 @@
 package btnctl
 
 import (
-	defaultcontrol "hypr-dock/internal/defaultControl"
-	"hypr-dock/internal/item"
-	"hypr-dock/internal/pkg/utils"
-	"hypr-dock/internal/state"
-	"hypr-dock/pkg/ipc"
+	defaultcontrol "hypr-appdock/internal/defaultControl"
+	"hypr-appdock/internal/item"
+	"hypr-appdock/internal/pkg/utils"
+	"hypr-appdock/internal/state"
+	"hypr-appdock/pkg/ipc"
 
 	"github.com/gotk3/gotk3/gdk"
 	"github.com/gotk3/gotk3/gtk"
@@ -83,3 +83,4 @@ func previewControl(item *item.Item, ctrl *defaultcontrol.Control, appState *sta
 		appState.GetLayerctl().SendUnfocus()
 	})
 }
+

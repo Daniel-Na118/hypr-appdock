@@ -9,9 +9,9 @@ import (
 	"github.com/gotk3/gotk3/pango"
 	"github.com/hashicorp/go-hclog"
 
-	"hypr-dock/internal/hysc"
-	"hypr-dock/internal/pkg/utils"
-	"hypr-dock/pkg/ipc"
+	"hypr-appdock/internal/hysc"
+	"hypr-appdock/internal/pkg/utils"
+	"hypr-appdock/pkg/ipc"
 )
 
 const GridCols = 4
@@ -266,3 +266,4 @@ func (s *Switcher) updateSelection() {
 		}
 	}
 }
+

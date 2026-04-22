@@ -92,7 +92,7 @@ func newAppDirs() []string {
 
 	return ProcessDirectories(append([]string{
 		// dock custom apps
-		filepath.Join(home, ".local/share/hypr-dock"),
+		filepath.Join(home, ".local/share/hypr-appdock"),
 
 		// user local apps
 		os.Getenv("XDG_DATA_HOME"),
@@ -143,3 +143,4 @@ func ProcessDirectories(paths []string) []string {
 
 	return result
 }
+

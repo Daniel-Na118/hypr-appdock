@@ -2,7 +2,7 @@ package conf
 
 import (
 	"fmt"
-	"hypr-dock/pkg/ini"
+	"hypr-appdock/pkg/ini"
 	"path/filepath"
 
 	"github.com/hashicorp/go-hclog"
@@ -174,7 +174,7 @@ func New(configPath string, themesDir string, logger hclog.Logger) (*Config, err
 // 		return GetDefaultConfig()
 // 	}
 
-// 	// Set default values ​​if not specified
+// 	// Set default values ?�​if not specified
 // 	if config.CurrentTheme == "" {
 // 		config.CurrentTheme = GetDefaultConfig().CurrentTheme
 // 		log.Println("The theme is not set, the default theme is currently used - \"lotos\"")
@@ -236,7 +236,7 @@ func New(configPath string, themesDir string, logger hclog.Logger) (*Config, err
 // 		return nil
 // 	}
 
-// 	// Set default values ​​if not specified
+// 	// Set default values ?�​if not specified
 // 	if themeConfig.Spacing < 0 {
 // 		themeConfig.Spacing = config.Spacing
 // 	}
@@ -270,7 +270,7 @@ func New(configPath string, themesDir string, logger hclog.Logger) (*Config, err
 // 		return errors.Wrapf(err, "file %q not found", jsoncFile)
 // 	}
 
-// 	// Парсим JSONC
+// 	// ?а??им JSONC
 // 	standardized, err := hujson.Standardize(file)
 // 	if err != nil {
 // 		return errors.Wrapf(err, "failed to standardize JSONC")
@@ -344,3 +344,4 @@ func New(configPath string, themesDir string, logger hclog.Logger) (*Config, err
 // 	log.Printf("ERROR: config value \"%s\":\"%s\" is not valid in file: %s", key, value, file)
 // 	log.Printf("DEBUG: default value \"%s\":\"%s\" is used", key, defaultVal)
 // }
+

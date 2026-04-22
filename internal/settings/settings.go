@@ -1,10 +1,10 @@
 package settings
 
 import (
-	"hypr-dock/internal/pkg/conf"
-	"hypr-dock/internal/pkg/flags"
-	"hypr-dock/internal/pkg/pinned"
-	"hypr-dock/internal/pkg/utils"
+	"hypr-appdock/internal/pkg/conf"
+	"hypr-appdock/internal/pkg/flags"
+	"hypr-appdock/internal/pkg/pinned"
+	"hypr-appdock/internal/pkg/utils"
 
 	"os"
 	"path/filepath"
@@ -13,7 +13,7 @@ import (
 	"github.com/hashicorp/go-hclog"
 )
 
-const APP_NAME = "hypr-dock"
+const APP_NAME = "hypr-appdock"
 const LOCAL = ".local/share"
 
 type Settings struct {
@@ -46,7 +46,7 @@ func Init(flags flags.Flags, log hclog.Logger) (*Settings, error) {
 
 	// main config file
 	configPath := filepath.Join(configDir, APP_NAME+".conf")
-	if flags.Config != "~/.config/hypr-dock" {
+	if flags.Config != "~/.config/hypr-appdock" {
 		configPath = expand(flags.Config)
 	}
 
@@ -110,3 +110,4 @@ func expand(path string) string {
 	}
 	return path
 }
+

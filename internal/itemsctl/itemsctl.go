@@ -2,8 +2,8 @@ package itemsctl
 
 import (
 	"errors"
-	"hypr-dock/internal/item"
-	"hypr-dock/pkg/ipc"
+	"hypr-appdock/internal/item"
+	"hypr-appdock/pkg/ipc"
 )
 
 type List struct {
@@ -47,3 +47,4 @@ func (l *List) SearchWindow(address string) (*item.Item, *ipc.Client, error) {
 	err := errors.New("Window not found: " + address)
 	return nil, nil, err
 }
+

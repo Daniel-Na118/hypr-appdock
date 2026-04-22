@@ -16,20 +16,20 @@ var (
 // initDebugTiming initializes the debug timing system
 func initDebugTiming() {
 	// Check if debug timing is enabled via environment variable
-	if os.Getenv("HYPR_DOCK_DEBUG_TIMING") == "1" {
+	if os.Getenv("hypr_appdock_DEBUG_TIMING") == "1" {
 		debugTimingEnabled = true
 		debugStartTime = time.Now()
 
 		// Clear and open log file
 		var err error
-		debugLogFile, err = os.OpenFile("/tmp/hypr-dock-timing.log", os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0644)
+		debugLogFile, err = os.OpenFile("/tmp/hypr-appdock-timing.log", os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0644)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, "Failed to open timing log: %v\n", err)
 			debugTimingEnabled = false
 			return
 		}
 
-		logTiming("=== HYPR-DOCK SWITCHER TIMING DEBUG ===")
+		logTiming("=== hypr-appdock SWITCHER TIMING DEBUG ===")
 		logTiming("Start time: %s", debugStartTime.Format("15:04:05.000000"))
 	}
 }
@@ -65,7 +65,7 @@ func logTiming(format string, v ...interface{}) {
 func debugLog(format string, v ...interface{}) {
 	// DISABLED for performance (Prevent UI Freeze)
 	// if false {
-	// 	f, err := os.OpenFile("/tmp/hypr-dock-debug.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	// 	f, err := os.OpenFile("/tmp/hypr-appdock-debug.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	// 	if err == nil {
 	// 		defer f.Close()
 	// 		msg := fmt.Sprintf(format, v...)
@@ -77,7 +77,7 @@ func debugLog(format string, v ...interface{}) {
 
 // enableDebugLog enables debug logging to file (for debugging purposes)
 func enableDebugLog(format string, v ...interface{}) {
-	f, err := os.OpenFile("/tmp/hypr-dock-debug.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	f, err := os.OpenFile("/tmp/hypr-appdock-debug.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err == nil {
 		defer f.Close()
 		msg := fmt.Sprintf(format, v...)
@@ -85,3 +85,4 @@ func enableDebugLog(format string, v ...interface{}) {
 		fmt.Fprintf(f, "[%s] %s\n", timestamp, msg)
 	}
 }
+

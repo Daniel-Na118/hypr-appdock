@@ -1,6 +1,6 @@
-# **Модуль dockIPC**
+# **?од?л? dockIPC**
 
-Реализация модуля для работы с IPC через Unix domain sockets:
+?еализа?и? мод?л? дл? ?або?? ? IPC ?е?ез Unix domain sockets:
 
 ```go
 package dockIPC
@@ -12,11 +12,11 @@ import (
 	"syscall"
 )
 
-// StartServer - запускает IPC сервер
-// fileName: путь к сокету (например "/tmp/hypr-dock.sock")
-// handler: функция обработки входящих команд
+// StartServer - зап??кае? IPC ?е?ве?
+// fileName: п??? к ?оке?? (нап?име? "/tmp/hypr-appdock.sock")
+// handler: ??нк?и? об?або?ки в?од??и? команд
 func StartServer(fileName string, handler func(string) ([]byte, error)) error {
-	// Удаляем старый сокет если существует
+	// Удал?ем ??а??й ?оке? е?ли ???е??в?е?
 	if err := os.RemoveAll(fileName); err != nil {
 		return err
 	}
@@ -28,12 +28,12 @@ func StartServer(fileName string, handler func(string) ([]byte, error)) error {
 	}
 	defer listener.Close()
 
-	// Устанавлием права на сокет
+	// У??анавлием п?ава на ?оке?
 	if err := os.Chmod(fileName, 0666); err != nil {
 		return err
 	}
 
-	// Обработка входящих соединений
+	// ?б?або?ка в?од??и? ?оединений
 	for {
 		conn, err := listener.Accept()
 		if err != nil {
@@ -47,7 +47,7 @@ func StartServer(fileName string, handler func(string) ([]byte, error)) error {
 	}
 }
 
-// handleConnection обрабатывает одно соединение
+// handleConnection об?аба??вае? одно ?оединение
 func handleConnection(conn net.Conn, handler func(string) ([]byte, error)) {
 	defer conn.Close()
 
@@ -60,15 +60,15 @@ func handleConnection(conn net.Conn, handler func(string) ([]byte, error)) {
 	command := string(buf[:n])
 	response, err := handler(command)
 	if err != nil {
-		// Форматируем ошибку в стандартный формат
+		// Фо?ма?и??ем о?ибк? в ??анда??н?й ?о?ма?
 		response = []byte("error: " + err.Error() + "\n")
 	}
 
 	conn.Write(response)
 }
 
-// Send отправляет команду в IPC сокет
-// command: строка команды (например "j/layer get")
+// Send о?п?авл?е? команд? в IPC ?оке?
+// command: ???ока команд? (нап?име? "j/layer get")
 func Send(fileName string, command string) ([]byte, error) {
 	conn, err := net.Dial("unix", fileName)
 	if err != nil {
@@ -90,15 +90,15 @@ func Send(fileName string, command string) ([]byte, error) {
 	return buf[:n], nil
 }
 
-// StopServer останавливает сервер (вспомогательная функция)
+// StopServer о??анавливае? ?е?ве? (в?помога?ел?на? ??нк?и?)
 func StopServer(fileName string) error {
 	return syscall.Unlink(fileName)
 }
 ```
 
-## **Использование модуля**
+## **??пол?зование мод?л?**
 
-### **1. Серверная часть**
+### **1. Се?ве?на? ?а???**
 ```go
 package main
 
@@ -108,7 +108,7 @@ import (
 )
 
 func main() {
-	// Обработчик команд
+	// ?б?або??ик команд
 	handler := func(command string) ([]byte, error) {
 		switch command {
 		case "j/layer get":
@@ -120,15 +120,15 @@ func main() {
 		}
 	}
 
-	// Запуск сервера
-	err := dockIPC.StartServer("/tmp/hypr-dock.sock", handler)
+	// ?ап??к ?е?ве?а
+	err := dockIPC.StartServer("/tmp/hypr-appdock.sock", handler)
 	if err != nil {
 		panic(err)
 	}
 }
 ```
 
-### **2. Клиентская часть**
+### **2. ?лиен??ка? ?а???**
 ```go
 package main
 
@@ -138,8 +138,8 @@ import (
 )
 
 func main() {
-	// Отправка команды
-	response, err := dockIPC.Send("/tmp/hypr-dock.sock", "j/layer get")
+	// ??п?авка команд?
+	response, err := dockIPC.Send("/tmp/hypr-appdock.sock", "j/layer get")
 	if err != nil {
 		fmt.Println("Error:", err)
 		return
@@ -149,23 +149,23 @@ func main() {
 }
 ```
 
-## **Особенности реализации**
+## **??обенно??и ?еализа?ии**
 
-1. **Безопасность**:
-   - Удаление старого сокета перед созданием
-   - Установка прав 0666 на сокет
-   - Корректная обработка закрытия соединений
+1. **?езопа?но???**:
+   - Удаление ??а?ого ?оке?а пе?ед ?озданием
+   - У??ановка п?ав 0666 на ?оке?
+   - ?о??ек?на? об?або?ка зак???и? ?оединений
 
-2. **Производительность**:
-   - Каждое соединение обрабатывается в отдельной goroutine
-   - Буферизированное чтение (4096 байт)
+2. **??оизводи?ел?но???**:
+   - ?аждое ?оединение об?аба??вае??? в о?дел?ной goroutine
+   - ???е?изи?ованное ??ение (4096 бай?)
 
-3. **Гибкость**:
-   - Обработчик команд может возвращать любые бинарные данные
-   - Поддержка текстовых и JSON-команд
+3. **?ибко???**:
+   - ?б?або??ик команд може? возв?а?а?? л?б?е бина?н?е данн?е
+   - ?одде?жка ?ек??ов?? и JSON-команд
 
-4. **Вспомогательные функции**:
-   - `StopServer()` для корректного завершения
-   - Автоматическое форматирование ошибок
+4. **??помога?ел?н?е ??нк?ии**:
+   - `StopServer()` дл? ко??ек?ного заве??ени?
+   - ?в?ома?и?е?кое ?о?ма?и?ование о?ибок
 
-Модуль готов к интеграции в проект `hypr-dock-ctl` и может быть расширен при необходимости.
+?од?л? го?ов к ин?ег?а?ии в п?оек? `hypr-appdock-ctl` и може? б??? ?а??и?ен п?и необ?одимо??и.

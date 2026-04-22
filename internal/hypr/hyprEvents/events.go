@@ -5,9 +5,9 @@ import (
 
 	"github.com/gotk3/gotk3/glib"
 
-	"hypr-dock/internal/app"
-	"hypr-dock/internal/state"
-	"hypr-dock/pkg/ipc"
+	"hypr-appdock/internal/app"
+	"hypr-appdock/internal/state"
+	"hypr-appdock/pkg/ipc"
 )
 
 func Init(appState *state.State) {
@@ -83,3 +83,4 @@ func eventHandler(event string, n int) []string {
 
 	return dataParts
 }
+

@@ -1,10 +1,10 @@
 package defaultcontrol
 
 import (
-	"hypr-dock/internal/item"
-	"hypr-dock/internal/pkg/utils"
-	"hypr-dock/internal/settings"
-	"hypr-dock/pkg/ipc"
+	"hypr-appdock/internal/item"
+	"hypr-appdock/internal/pkg/utils"
+	"hypr-appdock/internal/settings"
+	"hypr-appdock/pkg/ipc"
 
 	"github.com/gotk3/gotk3/gdk"
 	"github.com/gotk3/gotk3/gtk"
@@ -144,3 +144,4 @@ func (c *Control) connectContextMenu() {
 		}
 	})
 }
+

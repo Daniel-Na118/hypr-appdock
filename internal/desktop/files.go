@@ -1,7 +1,7 @@
 package desktop
 
 import (
-	"hypr-dock/pkg/ini"
+	"hypr-appdock/pkg/ini"
 	"os"
 	"path/filepath"
 	"sync"
@@ -55,3 +55,4 @@ func newTable() map[string]string {
 
 	return res
 }
+

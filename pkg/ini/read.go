@@ -65,3 +65,4 @@ func load(path string) ([]string, error) {
 
 	return output, nil
 }
+

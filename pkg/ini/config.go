@@ -84,3 +84,4 @@ func (cm *Manager) Unmarshal(v interface{}) error {
 		return newStructPtr.Elem().Interface()
 	}, cm.logger)
 }
+

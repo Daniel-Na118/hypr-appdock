@@ -361,7 +361,7 @@ func (a *App) reconnect() error {
 }
 
 func (a *App) createShmPool(size int32) (*shmPool, error) {
-	fd, err := unix.MemfdCreate("hypr-dock-shm", 0)
+	fd, err := unix.MemfdCreate("hypr-appdock-shm", 0)
 	if err != nil {
 		return nil, fmt.Errorf(`failed creating memfd: %w`, err)
 	}
@@ -414,3 +414,4 @@ func (a *App) roundTrip() error {
 		}
 	}
 }
+

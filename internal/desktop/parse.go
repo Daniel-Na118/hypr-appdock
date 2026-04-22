@@ -118,3 +118,4 @@ func GetActions(raw map[string]map[string]string, lang ...string) []Action {
 
 	return actionsRes
 }
+

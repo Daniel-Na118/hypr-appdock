@@ -2,7 +2,7 @@ package switcher
 
 import (
 	"fmt"
-	"hypr-dock/pkg/ipc"
+	"hypr-appdock/pkg/ipc"
 )
 
 // getWindowFingerprint creates a unique fingerprint for a window based on its state
@@ -13,3 +13,4 @@ func getWindowFingerprint(client ipc.Client) string {
 		client.Size[0],
 		client.Size[1])
 }
+

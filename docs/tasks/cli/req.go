@@ -28,3 +28,4 @@ func ParseRequest(request string) (command string, action string, data string, j
 
 	return command, action, data, json
 }
+

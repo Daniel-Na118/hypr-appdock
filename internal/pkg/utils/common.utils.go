@@ -23,7 +23,7 @@ func СreateLogger(logLevel string) hclog.Logger {
 	}
 
 	return hclog.New(&hclog.LoggerOptions{
-		Name:  "hypr-dock",
+		Name:  "hypr-appdock",
 		Level: level,
 		Color: hclog.AutoColor,
 	})
@@ -35,3 +35,4 @@ func NormaliseTitle(title string) string {
 
 	return strings.ToLower(firstWord)
 }
+

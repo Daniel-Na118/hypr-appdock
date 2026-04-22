@@ -3,7 +3,7 @@ package switcher
 import (
 	"sort"
 
-	"hypr-dock/pkg/ipc"
+	"hypr-appdock/pkg/ipc"
 
 	"github.com/gotk3/gotk3/gtk"
 )
@@ -137,3 +137,4 @@ func ClientsEqual(a, b []ipc.Client) bool {
 	}
 	return true
 }
+

@@ -74,3 +74,4 @@ func splitEvent(multiLineEvent string) []string {
 
 	return filteredEvents
 }
+

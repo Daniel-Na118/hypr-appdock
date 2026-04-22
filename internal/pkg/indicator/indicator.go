@@ -3,8 +3,8 @@ package indicator
 import (
 	"errors"
 	"fmt"
-	"hypr-dock/internal/pkg/utils"
-	"hypr-dock/internal/settings"
+	"hypr-appdock/internal/pkg/utils"
+	"hypr-appdock/internal/settings"
 	"os"
 	"path/filepath"
 	"slices"
@@ -111,3 +111,4 @@ func isSupportedExtension(ext string) bool {
 	supported := []string{".svg", ".jpg", ".png", ".webp"}
 	return slices.Contains(supported, ext)
 }
+

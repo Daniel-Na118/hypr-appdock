@@ -2,12 +2,12 @@ package pvctl
 
 import (
 	"fmt"
-	"hypr-dock/internal/item"
-	"hypr-dock/internal/pkg/popup"
-	"hypr-dock/internal/pkg/timer"
-	"hypr-dock/internal/pvwidget"
-	"hypr-dock/internal/settings"
-	"hypr-dock/pkg/ipc"
+	"hypr-appdock/internal/item"
+	"hypr-appdock/internal/pkg/popup"
+	"hypr-appdock/internal/pkg/timer"
+	"hypr-appdock/internal/pvwidget"
+	"hypr-appdock/internal/settings"
+	"hypr-appdock/pkg/ipc"
 
 	// "log"
 
@@ -359,3 +359,4 @@ func (pv *PV) prepareCord(w, h int, item *item.Item) (target popupTarget, orig *
 
 	return target, orig
 }
+

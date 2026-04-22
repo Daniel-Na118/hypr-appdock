@@ -1,12 +1,12 @@
-SYSTEM_CONFIG_DIR = /etc/hypr-dock
+SYSTEM_CONFIG_DIR = /etc/hypr-appdock
 
 PROJECT_BIN_DIR = bin
 PROJECT_CONFIG_DIR = configs/default
 
-EXECUTABLE_DOCK = hypr-dock
+EXECUTABLE_DOCK = hypr-appdock
 EXECUTABLE_ALTTAB = hypr-alttab
 
-CMD_DOCK = ./cmd/hypr-dock/.
+CMD_DOCK = ./cmd/hypr-appdock/.
 CMD_ALTTAB = ./cmd/hypr-alttab/.
 
 RESET := \033[0m
@@ -42,7 +42,7 @@ install: install-all
 install-dock:
 	-sudo killall $(EXECUTABLE_DOCK) 2>/dev/null || true
 	sudo cp $(PROJECT_BIN_DIR)/$(EXECUTABLE_DOCK) /usr/bin/
-	@echo -e "$(GREEN)hypr-dock installed$(RESET)"
+	@echo -e "$(GREEN)hypr-appdock installed$(RESET)"
 
 install-alttab:
 	-sudo killall $(EXECUTABLE_ALTTAB) 2>/dev/null || true
@@ -50,8 +50,8 @@ install-alttab:
 	@echo -e "$(GREEN)hypr-alttab installed$(RESET)"
 
 update-config:
-	sudo -rf $(PROJECT_CONFIG_DIR)/. $(SYSTEM_CONFIG_DIR)/
-	@echo -e "$(GREEN)Configs copied to $(SYSTEM_CONFIG_DIR)$(RESET)
+	sudo cp -rf $(PROJECT_CONFIG_DIR)/. $(SYSTEM_CONFIG_DIR)/
+	@echo -e "$(GREEN)Configs copied to $(SYSTEM_CONFIG_DIR)$(RESET)"
 
 install-all:
 	$(MAKE) install-dock
@@ -65,4 +65,4 @@ uninstall:
 	@echo -e "$(GREEN)Uninstalled.$(RESET)"
 
 exec:
-	./bin/hypr-dock -dev -log-level $(LOG_LEVEL)
+	./bin/hypr-appdock -dev -log-level $(LOG_LEVEL)

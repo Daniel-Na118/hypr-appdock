@@ -162,3 +162,4 @@ func (p *Popup) initLayerShell() {
 	layershell.SetLayer(p.win, layershell.LAYER_SHELL_LAYER_TOP)
 	layershell.SetExclusiveZone(p.win, -1)
 }
+

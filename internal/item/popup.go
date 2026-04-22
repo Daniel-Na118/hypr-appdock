@@ -8,9 +8,9 @@ import (
 	"github.com/gotk3/gotk3/pango"
 	"github.com/hashicorp/go-hclog"
 
-	"hypr-dock/internal/desktop"
-	"hypr-dock/internal/pkg/utils"
-	"hypr-dock/pkg/ipc"
+	"hypr-appdock/internal/desktop"
+	"hypr-appdock/internal/pkg/utils"
+	"hypr-appdock/pkg/ipc"
 )
 
 func (i *Item) WindowsMenu() (*gtk.Menu, error) {
@@ -218,3 +218,4 @@ func BuildContextItem(labelText string, connectFunc func(), iconName ...string) 
 
 	return menuItem, nil
 }
+

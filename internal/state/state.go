@@ -1,10 +1,10 @@
 package state
 
 import (
-	"hypr-dock/internal/itemsctl"
-	"hypr-dock/internal/layering"
-	"hypr-dock/internal/pvctl"
-	"hypr-dock/internal/settings"
+	"hypr-appdock/internal/itemsctl"
+	"hypr-appdock/internal/layering"
+	"hypr-appdock/internal/pvctl"
+	"hypr-appdock/internal/settings"
 	"sync"
 
 	"github.com/gotk3/gotk3/gtk"
@@ -115,3 +115,4 @@ func (s *State) GetPV() *pvctl.PV {
 
 	return s.pv
 }
+

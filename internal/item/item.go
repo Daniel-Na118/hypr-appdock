@@ -8,15 +8,15 @@ import (
 	"github.com/gotk3/gotk3/gtk"
 	"github.com/hashicorp/go-hclog"
 
-	"hypr-dock/internal/desktop"
-	layerinfo "hypr-dock/internal/layerInfo"
+	"hypr-appdock/internal/desktop"
+	layerinfo "hypr-appdock/internal/layerInfo"
 
-	"hypr-dock/internal/pkg/indicator"
-	"hypr-dock/internal/pkg/pinned"
-	"hypr-dock/internal/pkg/utils"
-	"hypr-dock/internal/settings"
+	"hypr-appdock/internal/pkg/indicator"
+	"hypr-appdock/internal/pkg/pinned"
+	"hypr-appdock/internal/pkg/utils"
+	"hypr-appdock/internal/settings"
 
-	"hypr-dock/pkg/ipc"
+	"hypr-appdock/pkg/ipc"
 )
 
 type Item struct {
@@ -261,3 +261,4 @@ func appendInducator(parent *gtk.Box, child *gtk.Image, pos string) {
 		parent.PackEnd(child, false, false, 0)
 	}
 }
+

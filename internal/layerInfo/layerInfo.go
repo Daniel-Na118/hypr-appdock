@@ -2,7 +2,7 @@ package layerinfo
 
 import (
 	"fmt"
-	"hypr-dock/pkg/ipc"
+	"hypr-appdock/pkg/ipc"
 
 	"github.com/goccy/go-json"
 )
@@ -25,7 +25,7 @@ type Monitor struct {
 }
 
 func GetDock() (*Layer, error) {
-	return Get("hypr-dock")
+	return Get("hypr-appdock")
 }
 
 func Get(namespace string) (*Layer, error) {
@@ -64,3 +64,4 @@ func GetMonitor() (*ipc.Monitor, error) {
 
 	return ipc.SearchMonitorByName(dock.Monitor)
 }
+

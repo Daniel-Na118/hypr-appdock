@@ -1,13 +1,13 @@
-# hypr-dock
+# hypr-appdock
 ### Interactive dock panel for Hyprland
 
-Translations: [`Русский`](README_RU.md)
+Translations: [`????кий`](README_RU.md)
 
 <img width="1360" height="768" alt="250725_16h02m52s_screenshot" src="https://github.com/user-attachments/assets/041d2cf6-13ba-4c89-a960-1903073ff2d4" />
 <img width="1360" height="768" alt="250725_16h03m09s_screenshot" src="https://github.com/user-attachments/assets/0c1ad8ca-37c1-4fd6-a48d-46f74c2d2609" />
 
 [![YouTube](https://img.shields.io/badge/YouTube-Video-FF0000?logo=youtube)](https://youtu.be/HHUZWHfNAl0?si=ZrRv2ggnPBEBS5oY)
-[![AUR](https://img.shields.io/badge/AUR-Package-1793D1?logo=arch-linux)](https://aur.archlinux.org/packages/hypr-dock)
+[![AUR](https://img.shields.io/badge/AUR-Package-1793D1?logo=arch-linux)](https://aur.archlinux.org/packages/hypr-appdock)
 
 ## Installation
 
@@ -20,8 +20,8 @@ Translations: [`Русский`](README_RU.md)
 ### Installation
 ! The first build may take a very long time due to gtk3 bindings !
 ```bash
-git clone https://github.com/lotos-linux/hypr-dock.git
-cd hypr-dock
+git clone https://github.com/lotos-linux/hypr-appdock.git
+cd hypr-appdock
 make get
 make build
 make install
@@ -43,7 +43,7 @@ make exec
 
 ```text
   -config string
-    	config file (default "~/.config/hypr-dock")
+    	config file (default "~/.config/hypr-appdock")
   -dev
     	enable developer mode
   -log-level string
@@ -53,19 +53,19 @@ make exec
 ```
 #### All parameters are optional.
 
-Default configuration and themes are installed in `/etc/hypr-dock`
-On first run, they are copied to `~/.config/hypr-dock`
+Default configuration and themes are installed in `/etc/hypr-appdock`
+On first run, they are copied to `~/.config/hypr-appdock`
 ### Add to `hyprland.conf`:
 
 ```text
-exec-once = hypr-dock
-bind = Super, D, exec, hypr-dock
+exec-once = hypr-appdock
+bind = Super, D, exec, hypr-appdock
 ```
 
 ### And configure blur if needed
 ```text
-layerrule = blur true,match:namespace hypr-dock
-layerrule = ignore_alpha 0,match:namespace hypr-dock
+layerrule = blur true,match:namespace hypr-appdock
+layerrule = ignore_alpha 0,match:namespace hypr-appdock
 layerrule = blur true,match:namespace dock-popup
 layerrule = ignore_alpha 0,match:namespace dock-popup
 ```
@@ -75,9 +75,9 @@ layerrule = ignore_alpha 0,match:namespace dock-popup
 ## Configuration
 
 #### !Important!
-If you already had `hypr-dock` installed or you are updating, please note that starting from version 1.2.0, an `ini`-like configuration format is now used. If you have old configs remaining in your user folder, be sure to delete or move them. Then simply adapt your settings to the new format.
+If you already had `hypr-appdock` installed or you are updating, please note that starting from version 1.2.0, an `ini`-like configuration format is now used. If you have old configs remaining in your user folder, be sure to delete or move them. Then simply adapt your settings to the new format.
 
-### Available parameters in `hypr-dock.conf`
+### Available parameters in `hypr-appdock.conf`
 
 ```ini
 [General]
@@ -120,12 +120,12 @@ Mode = none
 # !WARNING! 
 # BY SETTING "Mode" TO "live" OR "static", YOU AGREE TO THE CAPTURE 
 # OF WINDOW CONTENTS.
-# THE "HYPR-DOCK" PROGRAM DOES NOT COLLECT, STORE, OR TRANSMIT ANY DATA.
+# THE "hypr-appdock" PROGRAM DOES NOT COLLECT, STORE, OR TRANSMIT ANY DATA.
 # WINDOW CAPTURE OCCURS ONLY FOR THE DURATION OF THE THUMBNAIL DISPLAY!
 #   
-# Source code: https://github.com/lotos-linux/hypr-dock
+# Source code: https://github.com/lotos-linux/hypr-appdock
 
-# Live preview fps (0 - ∞) (default 30)
+# Live preview fps (0 - ?? (default 30)
 FPS = 30
 
 # Live preview bufferSize (1 - 20) (default 5)
@@ -156,7 +156,7 @@ Activates special layer behavior where tiling windows do not overlap the dock
 
 #### Preview appearance settings are configured through theme files
 
-### Pinned applications are stored in `~/.local/share/hypr-dock/pinned`
+### Pinned applications are stored in `~/.local/share/hypr-appdock/pinned`
 To pin/unpin, open the application's context menu in the dock and click `pin`/`unpin`
 #### Example
 ```text
@@ -170,16 +170,16 @@ sublime_text
 qt6ct
 one.ablaze.floorp
 ```
-You can edit it manually. But why? ¯\_(ツ)_/¯
+You can edit it manually. But why? ¯\_(??_/¯
 
 ## Themes
 
-#### Themes are located in `~/.config/hypr-dock/themes/`
+#### Themes are located in `~/.config/hypr-appdock/themes/`
 
 ### A theme consists of
 - `theme.conf`
 - `style.css`
-- A folder with `svg` files for indicating the number of running applications (see [themes_EN.md](https://github.com/lotos-linux/hypr-dock/blob/main/docs/customize/themes_EN.md))
+- A folder with `svg` files for indicating the number of running applications (see [themes_EN.md](https://github.com/lotos-linux/hypr-appdock/blob/main/docs/customize/themes_EN.md))
 
 ### Theme config
 ```ini

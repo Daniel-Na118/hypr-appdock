@@ -1,112 +1,112 @@
-### **Техническое задание: Реализация `hypr-dock-ctl` для управления hypr-dock**  
+### **Те?ни?е?кое задание: ?еализа?и? `hypr-appdock-ctl` дл? ?п?авлени? hypr-appdock**  
 
-#### **1. Цель**  
-Создать **отдельный CLI-бинарник** `hypr-dock-ctl` для управления доком через IPC, обеспечив:  
-- **Смену режима слоя** (`auto` ↔ `exclusive`) без перезапуска дока.  
-- **Единообразие с `hyprctl`** (синтаксис, флаги, вывод).  
-- **Масштабируемость** для будущих команд (темы, настройки, статус).  
-
----
-
-### **2. Требования**  
-
-#### **2.1. Базовый функционал (v1.0)**  
-- **Команда `toggle`**  
-  ```bash
-  hypr-dock-ctl toggle layer  # Переключает между auto и exclusive
-  ```  
-  - Отправляет команду через **Unix-socket** (`/tmp/hypr-dock.sock`).  
-  - Если док **не запущен** — игнорирует команду (или выводит ошибку).  
-
-- **Команда `get`**  
-  ```bash
-  hypr-dock-ctl get layer     # Выводит текущий режим (auto/exclusive)
-  ```  
-  - Возвращает текст или JSON (если `--json`).  
-
-- **Интеграция с Hyprland**  
-  ```bash
-  bind = SuperShift, D, exec, hypr-dock-ctl toggle layer
-  ```  
-
-#### **2.2. Дополнительные требования**  
-- **Единый стиль с `hyprctl`**:  
-  - Поддержка флагов `--json`, `--help`.  
-  - Чёткие сообщения об ошибках (например, `Dock is not running`).  
-- **Только один инстанс дока**:  
-  - При запуске `hypr-dock` проверяется, что сокет свободен.  
+#### **1. Цел?**  
+Созда?? **о?дел?н?й CLI-бина?ник** `hypr-appdock-ctl` дл? ?п?авлени? доком ?е?ез IPC, обе?пе?ив:  
+- **Смен? ?ежима ?ло?** (`auto` ??`exclusive`) без пе?езап??ка дока.  
+- **?динооб?азие ? `hyprctl`** (?ин?ак?и?, ?лаги, в?вод).  
+- **?а???аби??емо???** дл? б?д??и? команд (?ем?, на???ойки, ??а???).  
 
 ---
 
-### **3. Концепция реализации**  
+### **2. Т?ебовани?**  
 
-#### **3.1. IPC-протокол**  
-- **Формат команд**: Текстовые строки (для простоты).  
+#### **2.1. ?азов?й ??нк?ионал (v1.0)**  
+- **?оманда `toggle`**  
+  ```bash
+  hypr-appdock-ctl toggle layer  # ?е?екл??ае? межд? auto и exclusive
+  ```  
+  - ??п?авл?е? команд? ?е?ез **Unix-socket** (`/tmp/hypr-appdock.sock`).  
+  - ??ли док **не зап??ен** ??игно?и??е? команд? (или в?води? о?ибк?).  
+
+- **?оманда `get`**  
+  ```bash
+  hypr-appdock-ctl get layer     # ??води? ?ек??ий ?ежим (auto/exclusive)
+  ```  
+  - ?озв?а?ае? ?ек?? или JSON (е?ли `--json`).  
+
+- **?н?ег?а?и? ? Hyprland**  
+  ```bash
+  bind = SuperShift, D, exec, hypr-appdock-ctl toggle layer
+  ```  
+
+#### **2.2. ?ополни?ел?н?е ??ебовани?**  
+- **?дин?й ??ил? ? `hyprctl`**:  
+  - ?одде?жка ?лагов `--json`, `--help`.  
+  - Ч??кие ?ооб?ени? об о?ибка? (нап?име?, `Dock is not running`).  
+- **Тол?ко один ин??ан? дока**:  
+  - ??и зап??ке `hypr-appdock` п?ове??е???, ??о ?оке? ?вободен.  
+
+---
+
+### **3. ?он?еп?и? ?еализа?ии**  
+
+#### **3.1. IPC-п?о?окол**  
+- **Фо?ма? команд**: Тек??ов?е ???оки (дл? п?о??о??).  
   ```text
   TOGGLE_LAYER
   GET_LAYER
   ```  
-- **Ответы**:  
-  - `OK` — успех.  
-  - `ERROR: Not running` — док не активен.  
-  - `auto`/`exclusive` — для `get`.  
+- **??ве??**:  
+  - `OK` ????пе?.  
+  - `ERROR: Not running` ??док не ак?ивен.  
+  - `auto`/`exclusive` ??дл? `get`.  
 
-#### **3.2. Схема взаимодействия**  
+#### **3.2. С?ема взаимодей??ви?**  
 ```mermaid
 sequenceDiagram
     participant Hyprland
-    participant hypr-dock-ctl
-    participant hypr-dock (сервер)
+    participant hypr-appdock-ctl
+    participant hypr-appdock (?е?ве?)
 
-    Hyprland ->> hypr-dock-ctl: toggle layer
-    hypr-dock-ctl ->> hypr-dock: TOGGLE_LAYER (сокет)
-    hypr-dock -->> hypr-dock-ctl: OK
-    hypr-dock-ctl -->> Hyprland: Успех (код 0)
+    Hyprland ->> hypr-appdock-ctl: toggle layer
+    hypr-appdock-ctl ->> hypr-appdock: TOGGLE_LAYER (?оке?)
+    hypr-appdock -->> hypr-appdock-ctl: OK
+    hypr-appdock-ctl -->> Hyprland: У?пе? (код 0)
 ```  
 
-#### **3.3. Обработка ошибок**  
-| Ситуация                  | Действие                          |
+#### **3.3. ?б?або?ка о?ибок**  
+| Си??а?и?                  | ?ей??вие                          |
 |---------------------------|-----------------------------------|
-| Док не запущен            | `ERROR: Dock is not running`      |
-| Неверная команда          | `ERROR: Unknown command`          |
-| Сокет занят/недоступен    | `ERROR: Cannot connect to dock`   |
+| ?ок не зап??ен            | `ERROR: Dock is not running`      |
+| ?еве?на? команда          | `ERROR: Unknown command`          |
+| Соке? зан??/недо???пен    | `ERROR: Cannot connect to dock`   |
 
 ---
 
-### **4. Возможные расширения (будущие версии)**  
+### **4. ?озможн?е ?а??и?ени? (б?д??ие ве??ии)**  
 
-#### **4.1. Управление темами**  
+#### **4.1. Уп?авление ?емами**  
 ```bash
-hypr-dock-ctl set theme dark
-hypr-dock-ctl get theme
+hypr-appdock-ctl set theme dark
+hypr-appdock-ctl get theme
 ```  
 
-#### **4.2. Динамические настройки**  
+#### **4.2. ?инами?е?кие на???ойки**  
 ```bash
-hypr-dock-ctl set margin 10
-hypr-dock-ctl set spacing 5
+hypr-appdock-ctl set margin 10
+hypr-appdock-ctl set spacing 5
 ```  
 
-#### **4.3. Статус и отладка**  
+#### **4.3. С?а??? и о?ладка**  
 ```bash
-hypr-dock-ctl status  # Вывод всех параметров (JSON)
-hypr-dock-ctl reload  # Перезагрузка конфига
+hypr-appdock-ctl status  # ??вод в?е? па?аме??ов (JSON)
+hypr-appdock-ctl reload  # ?е?езаг??зка кон?ига
 ```  
 
-#### **4.4. Интеграция с `hyprctl`**  
-В будущем — добавление подкоманд в `hyprctl`:  
+#### **4.4. ?н?ег?а?и? ? `hyprctl`**  
+? б?д??ем ??добавление подкоманд в `hyprctl`:  
 ```bash
 hyprctl dock toggle layer
 hyprctl dock get theme
 ```  
 
 ---
-### **5. Этапы реализации**  
-1. **Реализация IPC-сервера** в `hypr-dock` (обработка команд).  
-2. **Создание `hypr-dock-ctl`** с командами `toggle` и `get`.  
-3. **Тестирование**:  
-   - Запуск/остановка дока.  
-   - Конкуренция за сокет.  
-4. **Документация**:  
-   - `man hypr-dock-ctl`.  
-   - Примеры для `hyprland.conf`.  
+### **5. Э?ап? ?еализа?ии**  
+1. **?еализа?и? IPC-?е?ве?а** в `hypr-appdock` (об?або?ка команд).  
+2. **Создание `hypr-appdock-ctl`** ? командами `toggle` и `get`.  
+3. **Те??и?ование**:  
+   - ?ап??к/о??ановка дока.  
+   - ?онк??ен?и? за ?оке?.  
+4. **?ок?мен?а?и?**:  
+   - `man hypr-appdock-ctl`.  
+   - ??име?? дл? `hyprland.conf`.  

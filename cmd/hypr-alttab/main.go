@@ -2,8 +2,8 @@ package main
 
 import (
 	"flag"
-	"hypr-dock/internal/settings"
-	"hypr-dock/internal/switcher"
+	"hypr-appdock/internal/settings"
+	"hypr-appdock/internal/switcher"
 	"os"
 	"path/filepath"
 )
@@ -17,3 +17,4 @@ func main() {
 
 	switcher.Run(configPath)
 }
+

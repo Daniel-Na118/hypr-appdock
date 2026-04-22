@@ -84,3 +84,4 @@ func (s *Switcher) createWindowClickHandler() func() {
 		s.confirm()
 	}
 }
+
