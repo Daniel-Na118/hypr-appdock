@@ -38,7 +38,7 @@ func main() {
 	// flags
 	flags := flags.Get()
 
-	logger := utils.СreateLogger(flags.LogLevel)
+	logger := utils.CreateLogger(flags.LogLevel)
 
 	// window build
 	settings, err := settings.Init(flags, logger)

@@ -174,7 +174,7 @@ func New(configPath string, themesDir string, logger hclog.Logger) (*Config, err
 // 		return GetDefaultConfig()
 // 	}
 
-// 	// Set default values ?�​if not specified
+// 	// Set default values if not specified
 // 	if config.CurrentTheme == "" {
 // 		config.CurrentTheme = GetDefaultConfig().CurrentTheme
 // 		log.Println("The theme is not set, the default theme is currently used - \"lotos\"")
@@ -236,7 +236,7 @@ func New(configPath string, themesDir string, logger hclog.Logger) (*Config, err
 // 		return nil
 // 	}
 
-// 	// Set default values ?�​if not specified
+// 	// Set default values if not specified
 // 	if themeConfig.Spacing < 0 {
 // 		themeConfig.Spacing = config.Spacing
 // 	}
@@ -270,7 +270,7 @@ func New(configPath string, themesDir string, logger hclog.Logger) (*Config, err
 // 		return errors.Wrapf(err, "file %q not found", jsoncFile)
 // 	}
 
-// 	// ?а??им JSONC
+// 	// Parse JSONC
 // 	standardized, err := hujson.Standardize(file)
 // 	if err != nil {
 // 		return errors.Wrapf(err, "failed to standardize JSONC")

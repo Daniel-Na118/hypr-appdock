@@ -15,7 +15,7 @@ func GetSingleValue[K comparable, V any](m map[K]V) (V, bool) {
 	return zero, false
 }
 
-func СreateLogger(logLevel string) hclog.Logger {
+func CreateLogger(logLevel string) hclog.Logger {
 	level := hclog.LevelFromString(logLevel)
 
 	if level == hclog.NoLevel {
